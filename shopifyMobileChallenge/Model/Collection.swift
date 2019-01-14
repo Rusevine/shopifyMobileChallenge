@@ -9,13 +9,14 @@
 import UIKit
 
 class Collection: NSObject {
-    let collection_id: String?
-    let collection_title: String?
+    
+    let collection_id: Int?
+    let collection_name: String?
     let collection_image: UIImage?
     
-    init(attributes: [String:Any]) {
-        self.collection_id = attributes["collection_id"] as? String
-        self.collection_title = attributes["collection_title"] as? String
+    init(id: Int, name: String, image: [String:Any]) {
+        self.collection_id = id
+        self.collection_name = name
         self.collection_image = nil
     }
     
