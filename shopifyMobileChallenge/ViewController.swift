@@ -11,9 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let test = DataManager()
-        test.getCollection()
+//        super.viewDidLoad()
+//        let test = DataManager()
+//        test.getCollection()
     }
 
 

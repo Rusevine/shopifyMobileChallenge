@@ -8,8 +8,9 @@
 
 import UIKit
 
-class CollectionsViewController: UIViewController {
+class CollectionsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var collectionsCollectionView: UICollectionView!
     let manager = DataManager()
     var collections = [Collection]()
 
@@ -21,9 +22,24 @@ class CollectionsViewController: UIViewController {
                 self.collections.append(collection as! Collection)
             }
             
+            OperationQueue.main.addOperation {
+                self.collectionsCollectionView.reloadData()
+            }
+            
         }
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return collections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionsCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionsCell", for: indexPath) as! CollectionsCollectionViewCell
+        
+        cell.configureCellWith(collection: collections[indexPath.row])
+        
+        return cell
+    }
 
 }

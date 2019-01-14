@@ -16,16 +16,13 @@ class DataManager: NSObject {
         case ProductInfo
     }
     
-    func getCollection() {
+    func getCollection(completion: @escaping ([Any]) -> ()) {
         
         let url = URL(string: "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         let urlRequest = URLRequest(url: url!)
         
         jsonParse(request: urlRequest, dataType: .CollectionInfo) { (collections) in
-            for collection in collections {
-                let col = collection as? Collection
-                print(col?.collection_name ?? "Invalid Name")
-            }
+            completion(collections)
         }
     }
     

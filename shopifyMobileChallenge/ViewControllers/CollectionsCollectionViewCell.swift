@@ -10,4 +10,11 @@ import UIKit
 
 class CollectionsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var collectionImage: UIImageView!
+    
+    func configureCellWith(collection: Collection) {
+        self.collectionImage.image = collection.collection_image
+        
+    }
+    
 }

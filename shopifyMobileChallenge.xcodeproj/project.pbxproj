@@ -15,6 +15,8 @@
 		4697E0D521EBE46E00F3F59C /* shopifyMobileChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0D421EBE46E00F3F59C /* shopifyMobileChallengeTests.swift */; };
 		4697E0E021EBE54000F3F59C /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0DF21EBE54000F3F59C /* Collection.swift */; };
 		4697E0E321EBE90800F3F59C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E221EBE90800F3F59C /* DataManager.swift */; };
+		4697E0E521EC7E3700F3F59C /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */; };
+		4697E0E821EC894B00F3F59C /* CollectionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		4697E0D621EBE46E00F3F59C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4697E0DF21EBE54000F3F59C /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		4697E0E221EBE90800F3F59C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				4697E0C621EBE46E00F3F59C /* Assets.xcassets */,
 				4697E0C821EBE46E00F3F59C /* LaunchScreen.storyboard */,
 				4697E0CB21EBE46E00F3F59C /* Info.plist */,
+				4697E0E621EC875800F3F59C /* ViewControllers */,
 				4697E0E121EBE8CE00F3F59C /* Model */,
 			);
 			path = shopifyMobileChallenge;
@@ -108,6 +113,15 @@
 				4697E0E221EBE90800F3F59C /* DataManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4697E0E621EC875800F3F59C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */,
+				4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4697E0E821EC894B00F3F59C /* CollectionsCollectionViewCell.swift in Sources */,
 				4697E0E321EBE90800F3F59C /* DataManager.swift in Sources */,
 				4697E0E021EBE54000F3F59C /* Collection.swift in Sources */,
+				4697E0E521EC7E3700F3F59C /* CollectionsViewController.swift in Sources */,
 				4697E0C221EBE46C00F3F59C /* ViewController.swift in Sources */,
 				4697E0C021EBE46C00F3F59C /* AppDelegate.swift in Sources */,
 			);
