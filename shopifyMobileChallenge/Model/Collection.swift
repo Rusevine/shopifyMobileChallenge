@@ -10,23 +10,23 @@ import UIKit
 
 class Collection: NSObject {
     
-    let collection_id: Int?
-    let collection_name: String?
-    let collection_image: UIImage?
+    let id: Int?
+    let name: String?
+    let collectionImage: UIImage?
     
     init(id: Int, name: String, image: [String:Any]) {
-        self.collection_id = id
-        self.collection_name = name
+        self.id = id
+        self.name = name
         
         let src = image["src"] as! String
         let imageURL = URL(string: src)
         
         do {
             let data = try Data(contentsOf: imageURL!)
-            self.collection_image = UIImage(data: data)
+            self.collectionImage = UIImage(data: data)
         } catch let error {
             print("error unable to load data: \(error)")
-            self.collection_image = nil
+            self.collectionImage = nil
         }
     }
     

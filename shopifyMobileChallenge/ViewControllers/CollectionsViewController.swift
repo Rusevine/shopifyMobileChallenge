@@ -11,22 +11,31 @@ import UIKit
 class CollectionsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionsCollectionView: UICollectionView!
-    let manager = DataManager()
+    let dataManager = DataManager()
     var collections = [Collection]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manager.getCollection { (collections) in
-            for collection in collections {
-                self.collections.append(collection as! Collection)
-            }
+        dataManager.getCollections { (collections) in
+
+            self.collections = collections as! [Collection]
             
             OperationQueue.main.addOperation {
                 self.collectionsCollectionView.reloadData()
             }
             
         }
+        
+        dataManager.getProducts(collectionID: 68424728632) { (products) in
+            
+            let products = products as! [Product]
+            for product in products {
+                print(product.name)
+            }
+            print(products.count)
+        }
+        
 
     }
     

@@ -10,23 +10,46 @@ import UIKit
 
 class DataManager: NSObject {
     
-    enum DataType {
-        case CollectionInfo
-        case ProductInCollection
-        case ProductInfo
+    enum RequestType {
+        case GetCollection
+        case GetProductID
+        case GetProduct
     }
     
-    func getCollection(completion: @escaping ([Any]) -> ()) {
+    func getCollections(completion: @escaping ([Any]) -> ()) {
         
         let url = URL(string: "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         let urlRequest = URLRequest(url: url!)
         
-        jsonParse(request: urlRequest, dataType: .CollectionInfo) { (collections) in
+        jsonParse(request: urlRequest, requestType: .GetCollection) { (collections) in
             completion(collections)
         }
     }
     
-    func jsonParse(request: URLRequest, dataType: DataType, completion: @escaping ([Any]) -> ()) {
+    func getProducts(collectionID: Int, completion: @escaping ([Any]) -> ()) {
+        
+        let url = URL(string: "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(collectionID)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
+        
+        let urlRequest = URLRequest(url: url!)
+        
+        jsonParse(request: urlRequest, requestType: .GetProductID) { (ids) in
+            let ids = ids as! [Int]
+            let idStrings = ids.map{String($0)}
+            let productList = idStrings.joined(separator: ",")
+            
+            let url = URL(string: "https://shopicruit.myshopify.com/admin/products.json?ids=\(productList)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
+            
+            let urlRequest = URLRequest(url: url!)
+            
+            self.jsonParse(request: urlRequest, requestType: .GetProduct) { (products) in
+                completion(products)
+            }
+        }
+        
+        
+    }
+    
+    func jsonParse(request: URLRequest, requestType: RequestType, completion: @escaping ([Any]) -> ()) {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -45,12 +68,15 @@ class DataManager: NSObject {
                 return
             }
             
-            switch(dataType){
-                case .CollectionInfo:
+            switch(requestType){
+                case .GetCollection:
                     completion(self.parseCollection(json: json))
                 break
-                default:
-                    print("incorrect data")
+                case .GetProductID:
+                    completion(self.parseProductID(json: json))
+                break
+                case .GetProduct:
+                    completion(self.parseProduct(json: json))
                 break
             }
         }
@@ -64,17 +90,47 @@ class DataManager: NSObject {
         if let collectionsArray = json["custom_collections"] as? [[String:Any]] {
             for collection in collectionsArray {
                 
-                let image = collection["image"] as? [String:Any]
-                let id = collection["id"] as? Int
-                let name = collection["title"] as? String
+                let image = collection["image"] as! [String:Any]
+                let id = collection["id"] as! Int
+                let name = collection["title"] as! String
                 
-                let collection = Collection(id: id!, name: name!, image: image!)
-                
-                collections.append(collection)
+                collections.append(Collection(id: id, name: name, image: image))
             }
             
         }
         return collections
+    }
+    
+    func parseProductID(json: [String:Any]) -> [Int] {
+        
+        var ids = [Int]()
+        
+        if let products = json["collects"] as? [[String:Any]] {
+            for product in products {
+                let id = product["product_id"] as! Int
+                
+                ids.append(id)
+            }
+        }
+        return ids
+    }
+    
+    func parseProduct(json: [String:Any]) -> [Product] {
+        
+        var products = [Product]()
+        
+        if let productsArray = json["products"] as? [[String:Any]] {
+            for product in productsArray {
+                
+                let image = product["image"] as! [String:Any]
+                let id = product["id"] as! Int
+                let name = product["title"] as! String
+                let variants = product["variants"] as! [[String:Any]]
+                
+                products.append(Product(id: id, name: name, variants: variants, image: image))
+            }
+        }
+        return products
     }
     
 }
