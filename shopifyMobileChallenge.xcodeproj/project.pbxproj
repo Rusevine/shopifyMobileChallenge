@@ -18,6 +18,14 @@
 		4697E0E521EC7E3700F3F59C /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */; };
 		4697E0E821EC894B00F3F59C /* CollectionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */; };
 		4697E0EA21EDFE2F00F3F59C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0E921EDFE2F00F3F59C /* Product.swift */; };
+		4697E0EC21EE10EE00F3F59C /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0EB21EE10EE00F3F59C /* ProductsViewController.swift */; };
+		4697E0EE21EE111500F3F59C /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0ED21EE111500F3F59C /* ProductsTableViewCell.swift */; };
+		4697E0F121EEF3A800F3F59C /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4697E0F021EEF30600F3F59C /* PressStart2P-Regular.ttf */; };
+		4697E0F321EEF47B00F3F59C /* CabinSketch-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4697E0F221EEF47B00F3F59C /* CabinSketch-Bold.ttf */; };
+		4697E0F521EEF48F00F3F59C /* CabinSketch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4697E0F421EEF48F00F3F59C /* CabinSketch-Regular.ttf */; };
+		4697E0F721EFB90100F3F59C /* Gurajada-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4697E0F621EFB90100F3F59C /* Gurajada-Regular.ttf */; };
+		4697E0F921EFB91000F3F59C /* CarroisGothicSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4697E0F821EFB91000F3F59C /* CarroisGothicSC-Regular.ttf */; };
+		4697E0FB21EFF13B00F3F59C /* UIImageView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697E0FA21EFF13B00F3F59C /* UIImageView+cornerRadius.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,14 @@
 		4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 		4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		4697E0E921EDFE2F00F3F59C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		4697E0EB21EE10EE00F3F59C /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		4697E0ED21EE111500F3F59C /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
+		4697E0F021EEF30600F3F59C /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
+		4697E0F221EEF47B00F3F59C /* CabinSketch-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Bold.ttf"; sourceTree = "<group>"; };
+		4697E0F421EEF48F00F3F59C /* CabinSketch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Regular.ttf"; sourceTree = "<group>"; };
+		4697E0F621EFB90100F3F59C /* Gurajada-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gurajada-Regular.ttf"; sourceTree = "<group>"; };
+		4697E0F821EFB91000F3F59C /* CarroisGothicSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CarroisGothicSC-Regular.ttf"; sourceTree = "<group>"; };
+		4697E0FA21EFF13B00F3F59C /* UIImageView+cornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+cornerRadius.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4697E0BF21EBE46C00F3F59C /* AppDelegate.swift */,
+				4697E0EF21EEF2D000F3F59C /* Fonts */,
 				4697E0C121EBE46C00F3F59C /* ViewController.swift */,
 				4697E0C321EBE46C00F3F59C /* Main.storyboard */,
 				4697E0C621EBE46E00F3F59C /* Assets.xcassets */,
@@ -114,6 +131,7 @@
 				4697E0DF21EBE54000F3F59C /* Collection.swift */,
 				4697E0E221EBE90800F3F59C /* DataManager.swift */,
 				4697E0E921EDFE2F00F3F59C /* Product.swift */,
+				4697E0FA21EFF13B00F3F59C /* UIImageView+cornerRadius.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,8 +141,22 @@
 			children = (
 				4697E0E421EC7E3700F3F59C /* CollectionsViewController.swift */,
 				4697E0E721EC894B00F3F59C /* CollectionsCollectionViewCell.swift */,
+				4697E0EB21EE10EE00F3F59C /* ProductsViewController.swift */,
+				4697E0ED21EE111500F3F59C /* ProductsTableViewCell.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4697E0EF21EEF2D000F3F59C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4697E0F021EEF30600F3F59C /* PressStart2P-Regular.ttf */,
+				4697E0F221EEF47B00F3F59C /* CabinSketch-Bold.ttf */,
+				4697E0F421EEF48F00F3F59C /* CabinSketch-Regular.ttf */,
+				4697E0F621EFB90100F3F59C /* Gurajada-Regular.ttf */,
+				4697E0F821EFB91000F3F59C /* CarroisGothicSC-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +240,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4697E0F121EEF3A800F3F59C /* PressStart2P-Regular.ttf in Resources */,
+				4697E0F521EEF48F00F3F59C /* CabinSketch-Regular.ttf in Resources */,
 				4697E0CA21EBE46E00F3F59C /* LaunchScreen.storyboard in Resources */,
 				4697E0C721EBE46E00F3F59C /* Assets.xcassets in Resources */,
 				4697E0C521EBE46C00F3F59C /* Main.storyboard in Resources */,
+				4697E0F921EFB91000F3F59C /* CarroisGothicSC-Regular.ttf in Resources */,
+				4697E0F321EEF47B00F3F59C /* CabinSketch-Bold.ttf in Resources */,
+				4697E0F721EFB90100F3F59C /* Gurajada-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +267,10 @@
 			files = (
 				4697E0E821EC894B00F3F59C /* CollectionsCollectionViewCell.swift in Sources */,
 				4697E0E321EBE90800F3F59C /* DataManager.swift in Sources */,
+				4697E0EC21EE10EE00F3F59C /* ProductsViewController.swift in Sources */,
+				4697E0EE21EE111500F3F59C /* ProductsTableViewCell.swift in Sources */,
 				4697E0E021EBE54000F3F59C /* Collection.swift in Sources */,
+				4697E0FB21EFF13B00F3F59C /* UIImageView+cornerRadius.swift in Sources */,
 				4697E0E521EC7E3700F3F59C /* CollectionsViewController.swift in Sources */,
 				4697E0C221EBE46C00F3F59C /* ViewController.swift in Sources */,
 				4697E0C021EBE46C00F3F59C /* AppDelegate.swift in Sources */,

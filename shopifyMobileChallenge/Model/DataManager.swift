@@ -16,7 +16,7 @@ class DataManager: NSObject {
         case GetProduct
     }
     
-    func getCollections(completion: @escaping ([Any]) -> ()) {
+    class func getCollections(completion: @escaping ([Any]) -> ()) {
         
         let url = URL(string: "https://shopicruit.myshopify.com/admin/custom_collections.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         let urlRequest = URLRequest(url: url!)
@@ -26,7 +26,7 @@ class DataManager: NSObject {
         }
     }
     
-    func getProducts(collectionID: Int, completion: @escaping ([Any]) -> ()) {
+    class func getProducts(collectionID: Int, completion: @escaping ([Any]) -> ()) {
         
         let url = URL(string: "https://shopicruit.myshopify.com/admin/collects.json?collection_id=\(collectionID)&page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         
@@ -49,7 +49,7 @@ class DataManager: NSObject {
         
     }
     
-    func jsonParse(request: URLRequest, requestType: RequestType, completion: @escaping ([Any]) -> ()) {
+    private class func jsonParse(request: URLRequest, requestType: RequestType, completion: @escaping ([Any]) -> ()) {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -83,7 +83,7 @@ class DataManager: NSObject {
         task.resume()
     }
     
-    func parseCollection(json: [String:Any]) -> [Collection] {
+    private class func parseCollection(json: [String:Any]) -> [Collection] {
         
         var collections = [Collection]()
         
@@ -101,7 +101,7 @@ class DataManager: NSObject {
         return collections
     }
     
-    func parseProductID(json: [String:Any]) -> [Int] {
+    private class func parseProductID(json: [String:Any]) -> [Int] {
         
         var ids = [Int]()
         
@@ -115,7 +115,7 @@ class DataManager: NSObject {
         return ids
     }
     
-    func parseProduct(json: [String:Any]) -> [Product] {
+    private class func parseProduct(json: [String:Any]) -> [Product] {
         
         var products = [Product]()
         

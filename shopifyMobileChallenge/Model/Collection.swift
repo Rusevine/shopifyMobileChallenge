@@ -16,7 +16,10 @@ class Collection: NSObject {
     
     init(id: Int, name: String, image: [String:Any]) {
         self.id = id
-        self.name = name
+        
+        let collectionName = name.components(separatedBy: " ").first
+        self.name = collectionName
+        
         
         let src = image["src"] as! String
         let imageURL = URL(string: src)
@@ -29,7 +32,6 @@ class Collection: NSObject {
             self.collectionImage = nil
         }
     }
-    
     
     
 }

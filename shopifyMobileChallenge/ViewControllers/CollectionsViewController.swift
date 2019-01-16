@@ -8,36 +8,43 @@
 
 import UIKit
 
-class CollectionsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionsCollectionView: UICollectionView!
-    let dataManager = DataManager()
+ 
     var collections = [Collection]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        dataManager.getCollections { (collections) in
-
+        DataManager.getCollections { (collections) in
+            
             self.collections = collections as! [Collection]
+            
             
             OperationQueue.main.addOperation {
                 self.collectionsCollectionView.reloadData()
             }
             
         }
-        
-        dataManager.getProducts(collectionID: 68424728632) { (products) in
-            
-            let products = products as! [Product]
-            for product in products {
-                print(product.name)
-            }
-            print(products.count)
-        }
-        
 
+        
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        DataManager.getCollections { (collections) in
+//
+//            self.collections = collections as! [Collection]
+//
+//
+//            OperationQueue.main.addOperation {
+//                self.collectionsCollectionView.reloadData()
+//            }
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collections.count
@@ -50,5 +57,22 @@ class CollectionsViewController: UIViewController, UICollectionViewDelegate, UIC
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height/2)
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "collectionToProduct" {
+            let collectionViewCell = sender as! UICollectionViewCell
+            let vc = segue.destination as! ProductsViewController
+            guard let indexPath = collectionsCollectionView.indexPath(for: collectionViewCell) else {return}
+            vc.collection = collections[indexPath.row]
+            
+            }
+            
+        }
 
 }
