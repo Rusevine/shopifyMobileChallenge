@@ -93,8 +93,9 @@ class DataManager: NSObject {
                 let image = collection["image"] as! [String:Any]
                 let id = collection["id"] as! Int
                 let name = collection["title"] as! String
+                let body = collection["body_html"] as! String
                 
-                collections.append(Collection(id: id, name: name, image: image))
+                collections.append(Collection(id: id, name: name, image: image, body:body))
             }
             
         }

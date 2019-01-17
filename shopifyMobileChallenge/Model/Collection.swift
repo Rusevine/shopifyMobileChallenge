@@ -13,12 +13,15 @@ class Collection: NSObject {
     let id: Int?
     let name: String?
     let collectionImage: UIImage?
+    let body: String?
     
-    init(id: Int, name: String, image: [String:Any]) {
+    init(id: Int, name: String, image: [String:Any], body: String) {
         self.id = id
         
         let collectionName = name.components(separatedBy: " ").first
         self.name = collectionName
+        
+        self.body = body
         
         
         let src = image["src"] as! String

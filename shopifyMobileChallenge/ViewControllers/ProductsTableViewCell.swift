@@ -21,7 +21,7 @@ class ProductsTableViewCell: UITableViewCell {
         productImageView.image = product.productImage
         
         productInfoContainer.layer.cornerRadius = 5
-        productImageView.layer.cornerRadius = 5
+        productImageView.setCornerRadiusAndBorder(radius: 5)
     }
 
 }

@@ -43,7 +43,6 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //return view.frame.size.height/8
         return 85
     }
     
