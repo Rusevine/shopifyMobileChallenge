@@ -2,7 +2,7 @@
 
 My submission for Shopify's Mobile Developer Intern Challenge - Summer 2019.
 
-Note: UI is currently only optimized for iPhone 8 
+Note: UI is currently only optimized for iPhone 8. I used Storyboard and Auto-layout for majority of the UI.
 
 ### Screenshots
 
