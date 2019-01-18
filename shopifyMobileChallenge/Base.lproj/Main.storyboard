@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dNz-WN-S4H">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="211.5" width="375" height="455.5"/>
                                 <color key="backgroundColor" red="0.89125951780000001" green="0.89125951780000001" blue="0.89125951780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.81176470588235294" green="0.81176470588235294" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -234,17 +234,63 @@
                                     <outlet property="delegate" destination="gcd-fs-omI" id="Arb-JK-f9A"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN7-jd-ZId">
+                                <rect key="frame" x="0.0" y="64" width="375" height="147.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3zP-kk-KDH">
+                                        <rect key="frame" x="147.5" y="5" width="80" height="80"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Gaq-6y-pam"/>
+                                            <constraint firstAttribute="height" constant="80" id="ovy-hx-SDw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aerodynamic Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irh-2q-lU2">
+                                        <rect key="frame" x="64.5" y="85" width="246" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WeD-5h-vGP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Gurajada" family="Gurajada" pointSize="37"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="helloooo" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nW-MD-ZAc">
+                                        <rect key="frame" x="60" y="123" width="255" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Irh-2q-lU2" firstAttribute="centerX" secondItem="lN7-jd-ZId" secondAttribute="centerX" id="4Lm-8F-fh1"/>
+                                    <constraint firstItem="Irh-2q-lU2" firstAttribute="top" secondItem="3zP-kk-KDH" secondAttribute="bottom" id="85a-Gv-pme"/>
+                                    <constraint firstItem="4nW-MD-ZAc" firstAttribute="top" secondItem="Irh-2q-lU2" secondAttribute="bottom" constant="-2" id="Ap2-e1-ffQ"/>
+                                    <constraint firstItem="4nW-MD-ZAc" firstAttribute="centerX" secondItem="lN7-jd-ZId" secondAttribute="centerX" id="BND-93-0jq"/>
+                                    <constraint firstAttribute="bottom" secondItem="4nW-MD-ZAc" secondAttribute="bottom" constant="5" id="Thj-M7-eIX"/>
+                                    <constraint firstItem="3zP-kk-KDH" firstAttribute="top" secondItem="lN7-jd-ZId" secondAttribute="top" constant="5" id="bct-ca-0zR"/>
+                                    <constraint firstAttribute="trailing" secondItem="4nW-MD-ZAc" secondAttribute="trailing" constant="60" id="kgE-vB-PxM"/>
+                                    <constraint firstItem="3zP-kk-KDH" firstAttribute="centerX" secondItem="lN7-jd-ZId" secondAttribute="centerX" id="pJ5-sS-s3B"/>
+                                    <constraint firstItem="4nW-MD-ZAc" firstAttribute="leading" secondItem="lN7-jd-ZId" secondAttribute="leading" constant="60" id="x5X-PY-zmh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dNz-WN-S4H" firstAttribute="leading" secondItem="2w6-KX-Xa3" secondAttribute="leading" id="78Q-9C-Vyk"/>
-                            <constraint firstItem="dNz-WN-S4H" firstAttribute="top" secondItem="2w6-KX-Xa3" secondAttribute="top" id="7Nm-uC-to6"/>
                             <constraint firstItem="2w6-KX-Xa3" firstAttribute="trailing" secondItem="dNz-WN-S4H" secondAttribute="trailing" id="8d6-19-9xE"/>
+                            <constraint firstItem="dNz-WN-S4H" firstAttribute="top" secondItem="lN7-jd-ZId" secondAttribute="bottom" id="AQV-Ka-sOD"/>
+                            <constraint firstItem="lN7-jd-ZId" firstAttribute="top" secondItem="2w6-KX-Xa3" secondAttribute="top" id="Pjy-aQ-fyC"/>
+                            <constraint firstItem="lN7-jd-ZId" firstAttribute="leading" secondItem="2w6-KX-Xa3" secondAttribute="leading" id="TY1-or-r9b"/>
+                            <constraint firstItem="2w6-KX-Xa3" firstAttribute="trailing" secondItem="lN7-jd-ZId" secondAttribute="trailing" id="ct5-hr-wIf"/>
                             <constraint firstItem="2w6-KX-Xa3" firstAttribute="bottom" secondItem="dNz-WN-S4H" secondAttribute="bottom" id="jU1-ZT-FFK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2w6-KX-Xa3"/>
                     </view>
                     <connections>
+                        <outlet property="collectionBodyLabel" destination="4nW-MD-ZAc" id="2KX-oX-7ar"/>
+                        <outlet property="collectionImageView" destination="3zP-kk-KDH" id="t54-YO-roh"/>
+                        <outlet property="collectionNameLabel" destination="Irh-2q-lU2" id="z4q-ok-1Gc"/>
                         <outlet property="productsTableView" destination="dNz-WN-S4H" id="KyB-G7-9XS"/>
                     </connections>
                 </viewController>

@@ -21,11 +21,6 @@ class CollectionsViewController: UIViewController, UICollectionViewDelegate, UIC
             
             self.collections = collections as! [Collection]
             
-            for collection in self.collections {
-                print("\(collection.name ?? ""): \(collection.body ?? "")-")
-            }
-            
-            
             OperationQueue.main.addOperation {
                 self.collectionsCollectionView.reloadData()
             }

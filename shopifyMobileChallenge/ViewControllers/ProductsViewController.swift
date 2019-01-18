@@ -14,8 +14,20 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     var collection: Collection?
     @IBOutlet weak var productsTableView: UITableView!
     
+    @IBOutlet weak var collectionImageView: UIImageView!
+    @IBOutlet weak var collectionNameLabel: UILabel!
+    @IBOutlet weak var collectionBodyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.collectionImageView.image = collection?.collectionImage
+        self.collectionNameLabel.text = "\(collection?.name ?? "") Collection"
+        self.collectionBodyLabel.text = collection?.body
+        self.collectionImageView.layer.cornerRadius = self.collectionImageView.frame.width/2
+        self.collectionImageView.layer.borderWidth = 1.5
+        self.collectionImageView.layer.borderColor = UIColor.black.cgColor
+        self.collectionImageView.clipsToBounds = true
         
         guard let id = collection?.id else {return}
         DataManager.getProducts(collectionID: id) { (products) in
