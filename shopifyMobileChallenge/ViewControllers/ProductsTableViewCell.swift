@@ -16,12 +16,22 @@ class ProductsTableViewCell: UITableViewCell {
     @IBOutlet weak var productInfoContainer: UIView!
     
     func configureCellWith(product: Product) {
+        
         nameLabel.text = product.name
         quantityLabel.text = "Quantity: " + String(product.quantity)
         productImageView.image = product.productImage
         
+        setupUI()
+    
+    }
+    
+    func setupUI() {
+        
         productInfoContainer.layer.cornerRadius = 5
+        productInfoContainer.layer.borderWidth = 1
+        productInfoContainer.layer.borderColor = UIColor.black.cgColor
         productImageView.setCornerRadiusAndBorder(radius: 5)
+        
     }
 
 }

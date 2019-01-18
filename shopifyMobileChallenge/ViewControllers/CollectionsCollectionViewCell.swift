@@ -17,11 +17,19 @@ class CollectionsCollectionViewCell: UICollectionViewCell {
     
     
     func configureCellWith(collection: Collection) {
+        
         self.collectionImage.image = collection.collectionImage
         self.collectionNameLabel.text = collection.name
+        
+        setupUI()
+    }
+    
+    func setupUI() {
+        
         self.collectionImage.setCornerRadiusAndBorder(radius: 5)
         self.collectionContainer.layer.cornerRadius = 5
         self.imageViewContainer.layer.cornerRadius = 5
+        
     }
     
     
