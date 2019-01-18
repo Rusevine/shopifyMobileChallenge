@@ -16,13 +16,12 @@ class Collection: NSObject {
     let body: String?
     
     init(id: Int, name: String, image: [String:Any], body: String) {
-        self.id = id
         
         let collectionName = name.components(separatedBy: " ").first
+        
         self.name = collectionName
-        
+        self.id = id
         self.body = body
-        
         
         let src = image["src"] as! String
         let imageURL = URL(string: src)

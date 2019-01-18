@@ -12,25 +12,22 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var products = [Product]()
     var collection: Collection?
-    @IBOutlet weak var productsTableView: UITableView!
     
+    @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var collectionImageView: UIImageView!
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var collectionBodyLabel: UILabel!
+    @IBOutlet weak var collectionCard: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionImageView.image = collection?.collectionImage
-        self.collectionNameLabel.text = "\(collection?.name ?? "") Collection"
-        self.collectionBodyLabel.text = collection?.body
-        self.collectionImageView.layer.cornerRadius = self.collectionImageView.frame.width/2
-        self.collectionImageView.layer.borderWidth = 1.5
-        self.collectionImageView.layer.borderColor = UIColor.black.cgColor
-        self.collectionImageView.clipsToBounds = true
+        setupCollectionCard()
         
         guard let id = collection?.id else {return}
+        
         DataManager.getProducts(collectionID: id) { (products) in
+            
             self.products = products as! [Product]
             
             OperationQueue.main.addOperation {
@@ -38,7 +35,15 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
         }
+    }
+    
+    func setupCollectionCard() {
         
+        self.collectionImageView.image = collection?.collectionImage
+        self.collectionNameLabel.text = collection?.name
+        self.collectionBodyLabel.text = collection?.body
+        self.collectionImageView.circleImage()
+        self.collectionCard.setCornerRadiusAndBorder(radius: 5, borderWidth: 2)
         
     }
     

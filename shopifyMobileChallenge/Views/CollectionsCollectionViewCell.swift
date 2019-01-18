@@ -26,7 +26,7 @@ class CollectionsCollectionViewCell: UICollectionViewCell {
     
     func setupUI() {
         
-        self.collectionImage.setCornerRadiusAndBorder(radius: 5)
+        self.collectionImage.setCornerRadiusAndBorder(radius: 5, borderWidth: 1)
         self.collectionContainer.layer.cornerRadius = 5
         self.imageViewContainer.layer.cornerRadius = 5
         

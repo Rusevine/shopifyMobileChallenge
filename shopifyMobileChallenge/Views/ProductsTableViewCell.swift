@@ -27,10 +27,8 @@ class ProductsTableViewCell: UITableViewCell {
     
     func setupUI() {
         
-        productInfoContainer.layer.cornerRadius = 5
-        productInfoContainer.layer.borderWidth = 1
-        productInfoContainer.layer.borderColor = UIColor.black.cgColor
-        productImageView.setCornerRadiusAndBorder(radius: 5)
+        productInfoContainer.setCornerRadiusAndBorder(radius: 5, borderWidth: 1)
+        productImageView.setCornerRadiusAndBorder(radius: 5, borderWidth: 1)
         
     }
 

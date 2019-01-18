@@ -14,34 +14,17 @@ class CollectionsViewController: UIViewController, UICollectionViewDelegate, UIC
  
     var collections = [Collection]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        DataManager.getCollections { (collections) in
-            
-            self.collections = collections as! [Collection]
-            
-            OperationQueue.main.addOperation {
-                self.collectionsCollectionView.reloadData()
-            }
-            
-        }
-
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        DataManager.getCollections { (collections) in
-//
-//            self.collections = collections as! [Collection]
-//
-//
-//            OperationQueue.main.addOperation {
-//                self.collectionsCollectionView.reloadData()
-//            }
-        
+        DataManager.getCollections { (collections) in
+
+            self.collections = collections as! [Collection]
+
+            OperationQueue.main.addOperation {
+                self.collectionsCollectionView.reloadData()
+            }
+        }
     }
     
     
@@ -50,6 +33,7 @@ class CollectionsViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionsCollectionView.dequeueReusableCell(withReuseIdentifier: "collectionsCell", for: indexPath) as! CollectionsCollectionViewCell
         
         cell.configureCellWith(collection: collections[indexPath.row])
@@ -58,15 +42,17 @@ class CollectionsViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height/2)
+            return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height/2)
     }
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "collectionToProduct" {
+            
             let collectionViewCell = sender as! UICollectionViewCell
             let vc = segue.destination as! ProductsViewController
+            
             guard let indexPath = collectionsCollectionView.indexPath(for: collectionViewCell) else {return}
             vc.collection = collections[indexPath.row]
             
