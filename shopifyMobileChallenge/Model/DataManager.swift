@@ -90,12 +90,7 @@ class DataManager: NSObject {
         if let collectionsArray = json["custom_collections"] as? [[String:Any]] {
             for collection in collectionsArray {
                 
-                let image = collection["image"] as! [String:Any]
-                let id = collection["id"] as! Int
-                let name = collection["title"] as! String
-                let body = collection["body_html"] as! String
-                
-                collections.append(Collection(id: id, name: name, image: image, body:body))
+                collections.append(Collection(json: collection))
             }
             
         }
@@ -123,12 +118,8 @@ class DataManager: NSObject {
         if let productsArray = json["products"] as? [[String:Any]] {
             for product in productsArray {
                 
-                let image = product["image"] as! [String:Any]
-                let id = product["id"] as! Int
-                let name = product["title"] as! String
-                let variants = product["variants"] as! [[String:Any]]
-                
-                products.append(Product(id: id, name: name, variants: variants, image: image))
+                products.append(Product(json: product))
+        
             }
         }
         return products

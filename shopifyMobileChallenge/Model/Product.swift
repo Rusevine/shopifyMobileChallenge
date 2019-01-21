@@ -9,13 +9,20 @@
 import UIKit
 
 class Product: NSObject {
+    
     let id: Int?
     let name: String?
     let variants:[[String:Any]]
     let productImage: UIImage?
     var quantity: Int
     
-    init(id: Int, name: String, variants: [[String:Any]], image: [String:Any]) {
+    init(json: [String:Any]) {
+        
+        let image = json["image"] as! [String:Any]
+        let id = json["id"] as! Int
+        let name = json["title"] as! String
+        let variants = json["variants"] as! [[String:Any]]
+        
         self.id = id
         self.name = name
         self.variants = variants
